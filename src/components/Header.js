@@ -34,9 +34,9 @@ export default class Header extends Component {
                 <Image size='mini' src='https://react.semantic-ui.com/logo.png' />
               </Menu.Item>
               <Menu.Item header>MovieApp</Menu.Item>
-              <Menu.Item as={Link} to="movies">Movies</Menu.Item>
+              <Menu.Item as={Link} to="/movies">Movies</Menu.Item>
               {/* <Link to="movies">Movies</Link> */}
-              <Menu.Item as={Link} to="#">Add Movie</Menu.Item>
+              <Menu.Item as={Link} to="/movies/new">Add Movie</Menu.Item>
             </Container>
           </Menu>
         </Visibility>
