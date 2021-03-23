@@ -17,7 +17,9 @@ function MovieList({ movies }) {
   );
 
   const emptyMessage = <div>There are no movies yet...</div>;
-  return <div>{movies.length === 0 ? emptyMessage : movieList}</div>;
+  return <div>
+    
+    {movies.length === 0 ? emptyMessage : movieList}</div>;
 }
 
 MovieList.propTypes = { movies: PropTypes.array.isRequired };
