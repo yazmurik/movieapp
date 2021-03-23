@@ -1,10 +1,17 @@
-const initialState = {}
+import {FETCHED_MOVIES} from "../actions/movieActions"
+const initialState = {
+  fetching:false,
+  fetched:false,
+  movies:[],
+  error: {}, 
+}
 
-export default (state = [1,2,3], { type, payload }) => {
+
+export default (state = initialState, { type, payload }) => {
   switch (type) {
 
-  // case typeName:
-  //   return { ...state, ...payload }
+  case FETCHED_MOVIES:
+    return { ...state, movies:payload }
 
   default:
     return state

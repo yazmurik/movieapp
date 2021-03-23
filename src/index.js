@@ -15,11 +15,9 @@ const myStore= createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk
 
 ReactDOM.render(
     <BrowserRouter>
-      <React.StrictMode>
       <Provider store={myStore}>
         <App />
       </Provider>
-      </React.StrictMode>
     </BrowserRouter>
   ,
   document.getElementById('root')
