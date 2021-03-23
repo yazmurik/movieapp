@@ -16,7 +16,7 @@ export class MoviesPage extends Component {
     const errMessage = this.props.moviesReducer.error.message;
     return (
       <div>
-        Movies page
+        <h2>Movie List</h2>
         {errMessage ? (
           <h3>data error ({errMessage})</h3>
         ) : (
