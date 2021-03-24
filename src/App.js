@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from "./components/Footer";
 import React, { Component } from 'react'
 import {Container} from 'semantic-ui-react';
+import NewMoviePage from "../src/components/pages/NewMoviePage"
 
 
 class App extends Component {
@@ -13,10 +14,8 @@ class App extends Component {
       <div>
         <Header />
         <Container text>
-        {/* <Route exact path="/" component={HomePage}></Route> */}
           <Route exact path="/movies" component={MoviesPage}></Route>
-          {/* <Route exact path="/movies/new" component={NewMoviesPage}></Route> */}
-          {/* <Route exact path='/movie/edit/:id' component={NewMoviesPage}></Route> */}
+          <Route exact path="/movies/new" component={NewMoviePage}></Route>
         </Container>
         <Footer />
       </div>

@@ -18,9 +18,7 @@ export class MoviesPage extends Component {
     return (
       <div>
         <h2>Movie List</h2>
-        <HashLoader color={'#3BC2A7'} loading={this.props.moviesReducer.fetching}/>
-        <br/>
-        <br/>
+        <HashLoader margin={2} color={'#3BC2A7'} loading={this.props.moviesReducer.fetching}/>
         {errMessage ? (
           <h3>data error ({errMessage})</h3>
         ) : (
