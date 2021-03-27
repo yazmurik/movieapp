@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 import { Button, Image, Form, Message } from "semantic-ui-react";
 import InlineError from "../InlineError";
-import {onNewMovieSubmit} from '../../actions/newMovieActions'
+import {onNewMovieSubmit} from '../../actions/newMovieActions';
+import { Redirect} from "react-router-dom";
 
 class NewMoviePage extends Component {
   state = {
     title: "",
     cover: "",
     errors: {},
+    redirect: false
   };
   handleChange = (e) => {
     this.setState({
@@ -21,6 +23,7 @@ class NewMoviePage extends Component {
     this.setState({ errors });
     if(Object.keys(errors).length === 0){
       this.props.onNewMovieSubmit(this.state)
+      this.setState({redirect: true})
     }
   };
 
@@ -37,12 +40,11 @@ class NewMoviePage extends Component {
     const errorField=(
       <Message negative>
     <Message.Header>Error: </Message.Header>
-    <p></p>
+    <p>To upload this movie</p>
   </Message>);
-    return (
-      <div>
-        <h2>New Movie Form</h2>
-        <Form onSubmit={this.onSubmit} loading={this.props.newMovieReducer.fethcing}>
+
+  const movieForm=(
+  <Form onSubmit={this.onSubmit} loading={this.props.newMovieReducer.fethcing}>
           <Form.Field error={!!errors.title}>
             <label>Title</label>
             <input
@@ -75,7 +77,11 @@ class NewMoviePage extends Component {
             this.props.newMovieReducer.error.response && errorField
           }
           
-        </Form>
+        </Form>)
+    return (
+      <div>
+        <h2>New Movie Form</h2>
+        {this.props.newMovieReducer.fetched && this.state.redirect ? <Redirect to="/movies"/> : movieForm}
       </div>
     );
   }
