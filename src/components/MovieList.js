@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MovieCard from "../components/MovieCard";
-import { Grid, Image } from "semantic-ui-react";
+import { Grid, Image, } from "semantic-ui-react";
 
 function MovieList({ movies }) {
   const movieList = (
