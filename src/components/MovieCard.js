@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import {Link} from "react-router-dom";
 
-const processButtons=({movieId})=>{
+const processButtons=(movieId)=>{
   return (
     <Button.Group>
       <Button animated as={Link} to ={`/movie/${movieId}`}>
