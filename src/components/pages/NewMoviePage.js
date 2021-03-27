@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
-import { Button, Image, Form } from "semantic-ui-react";
+import { Button, Image, Form, Message } from "semantic-ui-react";
 import InlineError from "../InlineError";
 import {onNewMovieSubmit} from '../../actions/newMovieActions'
 
@@ -19,6 +19,9 @@ class NewMoviePage extends Component {
   onSubmit = () => {
     const errors = this.validate();
     this.setState({ errors });
+    if(Object.keys(errors).length === 0){
+      this.props.onNewMovieSubmit(this.state)
+    }
   };
 
   validate = () => {
@@ -30,10 +33,16 @@ class NewMoviePage extends Component {
 
   render() {
     const { errors } = this.state;
+
+    const errorField=(
+      <Message negative>
+    <Message.Header>Error: </Message.Header>
+    <p></p>
+  </Message>);
     return (
       <div>
         <h2>New Movie Form</h2>
-        <Form onSubmit={this.onSubmit}>
+        <Form onSubmit={this.onSubmit} loading={this.props.newMovieReducer.fethcing}>
           <Form.Field error={!!errors.title}>
             <label>Title</label>
             <input
@@ -62,6 +71,10 @@ class NewMoviePage extends Component {
           <Button color="blue" type="submit">
             Submit
           </Button>
+          {
+            this.props.newMovieReducer.error.response && errorField
+          }
+          
         </Form>
       </div>
     );
