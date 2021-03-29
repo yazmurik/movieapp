@@ -14,6 +14,8 @@ export const UPDATE_MOVIES_FULFILLED = "UPDATE_MOVIES_FULFILLED";
 export const UPDATE_MOVIES_REJECTED = "UPDATE_MOVIES_REJECTED";
 
 
+
+
 export function onNewMovieSubmit({title,cover}) {
   return (dispatch) => {
     dispatch({
@@ -39,4 +41,3 @@ export function onUpdateMoviesSubmit({title, cover,id}) {
     })
   };
 }
-

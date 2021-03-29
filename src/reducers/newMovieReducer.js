@@ -7,7 +7,7 @@ import {
   FETCH_MOVIES_REJECTED,
   UPDATE_MOVIES_PENDING,
   UPDATE_MOVIES_FULFILLED,
-  UPDATE_MOVIES_REJECTED
+  UPDATE_MOVIES_REJECTED,
 } from "../actions/newMovieActions";
 const initialState = {
   fetching: false,
@@ -39,6 +39,7 @@ export default (state = initialState, { type, payload }) => {
         return { ...state, movies: payload, fetching: false, fetched: true };
       case UPDATE_MOVIES_REJECTED:
         return { ...state, error: payload, fetching: false, fetched: true };
+
     default:
       return state;
   }

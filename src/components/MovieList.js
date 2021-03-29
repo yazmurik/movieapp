@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import MovieCard from "../components/MovieCard";
 import { Grid, Image, } from "semantic-ui-react";
 
-function MovieList({ movies }) {
+function MovieList({ movies, deleteMovie }) {
+  
   const movieList = (
     <Grid>
       <Grid.Row columns={3}>
         {movies.map((movie) => (
           <Grid.Column key={movie.id}>
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} deleteMovie={deleteMovie}/>
           </Grid.Column>
         ))}
       </Grid.Row>

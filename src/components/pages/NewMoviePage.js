@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Image, Form, Message } from "semantic-ui-react";
 import InlineError from "../InlineError";
-import { onNewMovieSubmit, fetchMovie,onUpdateMoviesSubmit } from "../../actions/newMovieActions";
+import { onNewMovieSubmit, fetchMovie,onUpdateMoviesSubmit,  } from "../../actions/newMovieActions";
 import { Redirect } from "react-router-dom";
 import newMovieReducer from "../../reducers/newMovieReducer";
 

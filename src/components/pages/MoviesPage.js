@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import MovieList from "../MovieList";
-import { fetchMovies } from "../../actions/movieActions";
+import { fetchMovies,onDeleteMovieSubmit } from "../../actions/movieActions";
+
 import {HashLoader} from "react-spinners";
 
 export class MoviesPage extends Component {
@@ -22,7 +23,7 @@ export class MoviesPage extends Component {
         {errMessage ? (
           <h3>data error ({errMessage})</h3>
         ) : (
-          <MovieList movies={this.props.moviesReducer.movies} />
+          <MovieList movies={this.props.moviesReducer.movies} deleteMovie={this.props.onDeleteMovieSubmit}/>
         )}
       </div>
     );
@@ -31,6 +32,6 @@ export class MoviesPage extends Component {
 
 const mapStateToProps = ({ moviesReducer }) => ({ moviesReducer });
 
-const mapDispatchToProps = { fetchMovies };
+const mapDispatchToProps = { fetchMovies, onDeleteMovieSubmit };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesPage);

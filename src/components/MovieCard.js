@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import {Link} from "react-router-dom";
 
-const processButtons=(movieId)=>{
+const processButtons=(movieId, deleteMovie)=>{
   return (
     <Button.Group>
       <Button animated as={Link} to ={`/movie/${movieId}`}>
@@ -11,7 +11,7 @@ const processButtons=(movieId)=>{
         <Icon name='edit' />
       </Button.Content>
     </Button>
-    <Button animated='vertical'>
+    <Button animated='vertical' onClick={()=>deleteMovie(movieId)}>
       <Button.Content visible>Delete</Button.Content>
       <Button.Content hidden>
         <Icon name='trash' />
@@ -21,7 +21,7 @@ const processButtons=(movieId)=>{
   )
 }
 
-const MovieCard = ({movie}) => (
+const MovieCard = ({movie, deleteMovie}) => (
   <Card>
     <Image src={movie.cover} wrapped ui={false} />
     <Card.Content>
@@ -40,7 +40,7 @@ const MovieCard = ({movie}) => (
       </a>
     </Card.Content>
     <Card.Content extra>
-      {processButtons(movie.id)}
+      {processButtons(movie.id, deleteMovie)}
     </Card.Content>
   </Card>
 )
