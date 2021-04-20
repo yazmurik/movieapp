@@ -8,10 +8,10 @@ function Footer(props) {
     <div>
       <Segment inverted style={{ margin: '5em 0em 0em', padding: '5em 0em' }} vertical>
           <Container textAlign='center'>
-            <Grid columns={2} divided stackable inverted>
+            <Grid columns={2} divided stackable inverted >
               <Grid.Row>
                 <Grid.Column>
-                  <Header inverted as='h4' content='Group 1' />
+                  <Header inverted as='h4' content='------' />
                   <List link inverted>
                     <List.Item as={Link} to="/">Home</List.Item>
                     <List.Item as={Link} to="/movies">Movies</List.Item>
